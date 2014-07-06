@@ -4,4 +4,4 @@
 
 ## 1.1.0
 
-`new` It is the first version of data.
+`new` It is the first version of bui-data.

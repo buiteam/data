@@ -1,8 +1,8 @@
-# data
+# bui-data
 
 ---
 
-[![spm version](http://spmjs.io/badge/data)](http://spmjs.io/package/data)
+[![spm version](http://spmjs.io/badge/bui-data)](http://spmjs.io/package/bui-data)
 
 An awesome spm package!
 
@@ -11,13 +11,13 @@ An awesome spm package!
 ## Install
 
 ```
-$ spm install data --save
+$ spm install bui-data --save
 ```
 
 ## Usage
 
 ```js
-var data = require('data');
+var data = require('bui-data');
 // use data
 ```
 

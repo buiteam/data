@@ -1,9 +1,9 @@
-define("bui-data/1.1.0/index-debug", ["bui-common/1.1.0/index-debug", "bui-data/1.1.0/src/sortable-debug", "bui-data/1.1.0/src/proxy-debug", "bui-data/1.1.0/src/abstractstore-debug", "bui-data/1.1.0/src/store-debug", "bui-data/1.1.0/src/node-debug", "bui-data/1.1.0/src/treestore-debug"], function(require, exports, module) {
+define("bui-data/1.1.0/index-debug", ["bui-common/1.1.0/common-debug", "bui-data/1.1.0/src/sortable-debug", "bui-data/1.1.0/src/proxy-debug", "bui-data/1.1.0/src/abstractstore-debug", "bui-data/1.1.0/src/store-debug", "bui-data/1.1.0/src/node-debug", "bui-data/1.1.0/src/treestore-debug"], function(require, exports, module) {
   /**
    * @fileOverview Data 命名空间的入口文件
    * @ignore
    */
-  var BUI = require("bui-common/1.1.0/index-debug"),
+  var BUI = require("bui-common/1.1.0/common-debug"),
     Data = BUI.namespace('Data');
   BUI.mix(Data, {
     Sortable: require("bui-data/1.1.0/src/sortable-debug"),
@@ -551,12 +551,12 @@ define("bui-data/1.1.0/src/proxy-debug", ["bui-data/1.1.0/src/sortable-debug"], 
   proxy.Memery = memeryProxy;
   module.exports = proxy;
 });
-define("bui-data/1.1.0/src/abstractstore-debug", ["bui-common/1.1.0/index-debug", "bui-data/1.1.0/src/proxy-debug", "bui-data/1.1.0/src/sortable-debug"], function(require, exports, module) {
+define("bui-data/1.1.0/src/abstractstore-debug", ["bui-common/1.1.0/common-debug", "bui-data/1.1.0/src/proxy-debug", "bui-data/1.1.0/src/sortable-debug"], function(require, exports, module) {
   /**
    * @fileOverview 抽象数据缓冲类
    * @ignore
    */
-  var BUI = require("bui-common/1.1.0/index-debug"),
+  var BUI = require("bui-common/1.1.0/common-debug"),
     Proxy = require("bui-data/1.1.0/src/proxy-debug");
   /**
    * @class BUI.Data.AbstractStore
@@ -1019,7 +1019,7 @@ define("bui-data/1.1.0/src/abstractstore-debug", ["bui-common/1.1.0/index-debug"
   });
   module.exports = AbstractStore;
 });
-define("bui-data/1.1.0/src/store-debug", ["bui-data/1.1.0/src/proxy-debug", "bui-data/1.1.0/src/abstractstore-debug", "bui-data/1.1.0/src/sortable-debug", "bui-common/1.1.0/index-debug"], function(require, exports, module) {
+define("bui-data/1.1.0/src/store-debug", ["bui-data/1.1.0/src/proxy-debug", "bui-data/1.1.0/src/abstractstore-debug", "bui-data/1.1.0/src/sortable-debug", "bui-common/1.1.0/common-debug"], function(require, exports, module) {
   /**
    * @fileOverview 数据缓冲对象
    * @author dxq613@gmail.com
@@ -1923,13 +1923,13 @@ define("bui-data/1.1.0/src/store-debug", ["bui-data/1.1.0/src/proxy-debug", "bui
   });
   module.exports = store;
 });
-define("bui-data/1.1.0/src/node-debug", ["bui-common/1.1.0/index-debug"], function(require, exports, module) {
+define("bui-data/1.1.0/src/node-debug", ["bui-common/1.1.0/common-debug"], function(require, exports, module) {
   /**
    * @fileOverview 树形数据结构的节点类，无法直接使用数据作为节点，所以进行一层封装
    * 可以直接作为TreeNode控件的配置项
    * @ignore
    */
-  var BUI = require("bui-common/1.1.0/index-debug");
+  var BUI = require("bui-common/1.1.0/common-debug");
 
   function mapNode(cfg, map) {
     var rst = {};
@@ -2013,12 +2013,12 @@ define("bui-data/1.1.0/src/node-debug", ["bui-common/1.1.0/index-debug"], functi
   });
   module.exports = Node;
 });
-define("bui-data/1.1.0/src/treestore-debug", ["bui-common/1.1.0/index-debug", "bui-data/1.1.0/src/node-debug", "bui-data/1.1.0/src/proxy-debug", "bui-data/1.1.0/src/abstractstore-debug", "bui-data/1.1.0/src/sortable-debug"], function(require, exports, module) {
+define("bui-data/1.1.0/src/treestore-debug", ["bui-common/1.1.0/common-debug", "bui-data/1.1.0/src/node-debug", "bui-data/1.1.0/src/proxy-debug", "bui-data/1.1.0/src/abstractstore-debug", "bui-data/1.1.0/src/sortable-debug"], function(require, exports, module) {
   /**
    * @fileOverview 树形对象缓冲类
    * @ignore
    */
-  var BUI = require("bui-common/1.1.0/index-debug"),
+  var BUI = require("bui-common/1.1.0/common-debug"),
     Node = require("bui-data/1.1.0/src/node-debug"),
     Proxy = require("bui-data/1.1.0/src/proxy-debug"),
     AbstractStore = require("bui-data/1.1.0/src/abstractstore-debug");

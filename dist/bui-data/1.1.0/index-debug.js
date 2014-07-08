@@ -1,4 +1,4 @@
-define("bui-data/1.1.0/index-debug", ["bui-common/1.1.0/common-debug", "bui-data/1.1.0/src/sortable-debug", "bui-data/1.1.0/src/proxy-debug", "bui-data/1.1.0/src/abstractstore-debug", "bui-data/1.1.0/src/store-debug", "bui-data/1.1.0/src/node-debug", "bui-data/1.1.0/src/treestore-debug"], function(require, exports, module) {
+define("bui-data/1.1.0/index-debug", ["jquery/1.9.1/jquery-debug", "bui-common/1.1.0/common-debug", "bui-data/1.1.0/src/sortable-debug", "bui-data/1.1.0/src/proxy-debug", "bui-data/1.1.0/src/abstractstore-debug", "bui-data/1.1.0/src/store-debug", "bui-data/1.1.0/src/node-debug", "bui-data/1.1.0/src/treestore-debug"], function(require, exports, module) {
   /**
    * @fileOverview Data 命名空间的入口文件
    * @ignore
@@ -154,10 +154,11 @@ define("bui-data/1.1.0/src/sortable-debug", [], function(require, exports, modul
       return records;
     }
   });
-  module.export = sortable;
+  module.exports = sortable;
 });
-define("bui-data/1.1.0/src/proxy-debug", ["bui-data/1.1.0/src/sortable-debug"], function(require, exports, module) {
-  var Sortable = require("bui-data/1.1.0/src/sortable-debug");
+define("bui-data/1.1.0/src/proxy-debug", ["jquery/1.9.1/jquery-debug", "bui-data/1.1.0/src/sortable-debug"], function(require, exports, module) {
+  var $ = require("jquery/1.9.1/jquery-debug"),
+    Sortable = require("bui-data/1.1.0/src/sortable-debug");
   /**
    * 数据代理对象，加载数据,
    * 一般不直接使用，在store里面决定使用什么类型的数据代理对象
@@ -551,7 +552,7 @@ define("bui-data/1.1.0/src/proxy-debug", ["bui-data/1.1.0/src/sortable-debug"], 
   proxy.Memery = memeryProxy;
   module.exports = proxy;
 });
-define("bui-data/1.1.0/src/abstractstore-debug", ["bui-common/1.1.0/common-debug", "bui-data/1.1.0/src/proxy-debug", "bui-data/1.1.0/src/sortable-debug"], function(require, exports, module) {
+define("bui-data/1.1.0/src/abstractstore-debug", ["jquery/1.9.1/jquery-debug", "bui-common/1.1.0/common-debug", "bui-data/1.1.0/src/proxy-debug", "bui-data/1.1.0/src/sortable-debug"], function(require, exports, module) {
   /**
    * @fileOverview 抽象数据缓冲类
    * @ignore
@@ -1019,13 +1020,14 @@ define("bui-data/1.1.0/src/abstractstore-debug", ["bui-common/1.1.0/common-debug
   });
   module.exports = AbstractStore;
 });
-define("bui-data/1.1.0/src/store-debug", ["bui-data/1.1.0/src/proxy-debug", "bui-data/1.1.0/src/abstractstore-debug", "bui-data/1.1.0/src/sortable-debug", "bui-common/1.1.0/common-debug"], function(require, exports, module) {
+define("bui-data/1.1.0/src/store-debug", ["jquery/1.9.1/jquery-debug", "bui-data/1.1.0/src/proxy-debug", "bui-data/1.1.0/src/abstractstore-debug", "bui-data/1.1.0/src/sortable-debug", "bui-common/1.1.0/common-debug"], function(require, exports, module) {
   /**
    * @fileOverview 数据缓冲对象
    * @author dxq613@gmail.com
    * @ignore
    */
-  var Proxy = require("bui-data/1.1.0/src/proxy-debug"),
+  var $ = require("jquery/1.9.1/jquery-debug"),
+    Proxy = require("bui-data/1.1.0/src/proxy-debug"),
     AbstractStore = require("bui-data/1.1.0/src/abstractstore-debug"),
     Sortable = require("bui-data/1.1.0/src/sortable-debug");
   //移除数据
@@ -1923,7 +1925,7 @@ define("bui-data/1.1.0/src/store-debug", ["bui-data/1.1.0/src/proxy-debug", "bui
   });
   module.exports = store;
 });
-define("bui-data/1.1.0/src/node-debug", ["bui-common/1.1.0/common-debug"], function(require, exports, module) {
+define("bui-data/1.1.0/src/node-debug", ["jquery/1.9.1/jquery-debug", "bui-common/1.1.0/common-debug"], function(require, exports, module) {
   /**
    * @fileOverview 树形数据结构的节点类，无法直接使用数据作为节点，所以进行一层封装
    * 可以直接作为TreeNode控件的配置项
@@ -2013,7 +2015,7 @@ define("bui-data/1.1.0/src/node-debug", ["bui-common/1.1.0/common-debug"], funct
   });
   module.exports = Node;
 });
-define("bui-data/1.1.0/src/treestore-debug", ["bui-common/1.1.0/common-debug", "bui-data/1.1.0/src/node-debug", "bui-data/1.1.0/src/proxy-debug", "bui-data/1.1.0/src/abstractstore-debug", "bui-data/1.1.0/src/sortable-debug"], function(require, exports, module) {
+define("bui-data/1.1.0/src/treestore-debug", ["jquery/1.9.1/jquery-debug", "bui-common/1.1.0/common-debug", "bui-data/1.1.0/src/node-debug", "bui-data/1.1.0/src/proxy-debug", "bui-data/1.1.0/src/abstractstore-debug", "bui-data/1.1.0/src/sortable-debug"], function(require, exports, module) {
   /**
    * @fileOverview 树形对象缓冲类
    * @ignore

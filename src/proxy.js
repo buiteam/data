@@ -1,6 +1,7 @@
 
 
-  var Sortable = require('./sortable');
+  var $ = require('jquery'),
+    Sortable = require('./sortable');
 
   /**
    * 数据代理对象，加载数据,
@@ -17,7 +18,7 @@
     
   };
 
-  BUI.extend(proxy,BUI.Base);
+  BUI.extend(proxy, BUI.Base);
 
   BUI.augment(proxy,
 
@@ -357,9 +358,9 @@
     }
   };
 
-  BUI.extend(memeryProxy,proxy);
+  BUI.extend(memeryProxy, proxy);
 
-  BUI.mixin(memeryProxy,[Sortable]);
+  BUI.mixin(memeryProxy, [Sortable]);
 
   BUI.augment(memeryProxy,{
 

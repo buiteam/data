@@ -5,7 +5,8 @@
  */
 
   
-  var Proxy = require('./proxy'),
+  var $ = require('jquery'),
+    Proxy = require('./proxy'),
     AbstractStore = require('./abstractstore'),
     Sortable = require('./sortable');
 

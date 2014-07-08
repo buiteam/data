@@ -7,7 +7,7 @@
   "author": "",
   "repository": {
     "type": "git",
-    "url": "git://github.com/buiteam/data.git"
+    "url": "git://github.com/buiteam/bui-data.git"
   },
   "bugs": {
     "url": ""
@@ -19,7 +19,9 @@
       "bui-common": "1.1.0"
     },
     "devDependencies": {
-      "expect.js": "0.3.1"
+      "jquery": "1.9.1",
+      "expect.js": "0.3.1",
+      "sinon": "1.6.0"
     },
     "engines": {
       "seajs": "2.2.1"

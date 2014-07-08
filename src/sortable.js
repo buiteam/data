@@ -160,4 +160,4 @@
     }
   });
 
-module.export = sortable;
+module.exports = sortable;

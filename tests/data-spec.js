@@ -8,7 +8,7 @@ var $ = require('jquery'),
 function contains(record,array){
   return $.inArray(record,array) !== -1;
 }
-
+/**/
 describe("测试未分页本地数据",function(){
 
   var data = [{},{},{},{}],
@@ -469,5 +469,44 @@ describe('修改链接',function(){
 });
 
 describe('修改pageSize',function(){
+
+});
+
+describe('字段匹配',function(){ 
+
+  it('测试加载数据',function(done){
+
+    var store = new Store({
+      url:'data/store_property.json',
+      autoLoad : true,
+      root: 'data.rows',
+      totalProperty: 'data.total'
+    });
+    store.load();
+    setTimeout(function(){
+      var data = store.getResult();
+      expect(data).not.to.be(null);
+      expect(data.length).not.to.be(0);
+      expect(store.getTotalCount()).not.to.be(0);
+      done();
+    }, 200);
+  });
+
+  it('测试错误',function(done){
+    var store = new Store({
+      url:'data/store-error.json',
+      autoLoad : true,
+      hasErrorProperty: 'data.hasError',
+      errorProperty: 'data.error'
+    });
+    store.load();
+
+    store.on('exception',function(ev){
+      expect(ev.error).not.to.be(null);
+
+      done();
+    });
+    
+  });
 
 });

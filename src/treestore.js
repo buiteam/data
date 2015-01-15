@@ -528,7 +528,7 @@
       if(BUI.isArray(data)){
         _self.setChildren(node,data);
       }else{
-        _self.setChildren(node,data[dataProperty]);
+        _self.setChildren(node, BUI.getValue(data, dataProperty));
       }
       node.loaded = true; //标识已经加载过
       _self.fire('load',{node : node,params : params});

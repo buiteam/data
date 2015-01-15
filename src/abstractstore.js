@@ -65,6 +65,51 @@
 
     },
     /**
+     * 错误字段,包含在返回信息中表示错误信息的字段
+     * <pre><code>
+     *   //可以修改接收的后台参数的含义
+     *   var store = new Store({
+     *     url : 'data.json',
+     *     errorProperty : 'errorMsg', //存放错误信息的字段(error)
+     *     hasErrorProperty : 'isError', //是否错误的字段（hasError)
+     *     root : 'data',               //存放数据的字段名(rows)
+     *     totalProperty : 'total'     //存放记录总数的字段名(results)
+     *   });
+     * </code></pre>
+     * @cfg {String} [errorProperty='error']
+     */
+    /**
+     * 错误字段
+     * @type {String}
+     * @ignore
+     */
+    errorProperty : {
+      value : 'error'
+    },
+    /**
+     * 是否存在错误,加载数据时如果返回错误，此字段表示有错误发生
+     * <pre><code>
+     *   //可以修改接收的后台参数的含义
+     *   var store = new Store({
+     *     url : 'data.json',
+     *     errorProperty : 'errorMsg', //存放错误信息的字段(error)
+     *     hasErrorProperty : 'isError', //是否错误的字段（hasError)
+     *     root : 'data',               //存放数据的字段名(rows)
+     *     totalProperty : 'total'     //存放记录总数的字段名(results)
+     *   });
+     * </code></pre>
+     * @cfg {String} [hasErrorProperty='hasError']
+     */
+    /**
+     * 是否存在错误
+     * @type {String}
+     * @default 'hasError'
+     * @ignore
+     */
+    hasErrorProperty : {
+      value : 'hasError'
+    },
+    /**
      * 数据代理对象,用于加载数据的ajax配置，{@link BUI.Data.Proxy}
      * <pre><code>
      *   var store = new Data.Store({
@@ -449,7 +494,7 @@
       //获取的原始数据
       _self.fire('beforeProcessLoad',data);
 
-      if(data[hasErrorField] || data.exception){
+      if(BUI.getValue(data,hasErrorField) || data.exception){
         _self.onException(data);
         return false;
       }
@@ -475,10 +520,10 @@
       //网络异常、转码错误之类，发生在json获取或转变时
       if(data.exception){
         obj.type = 'exception';
-        obj[errorProperty] = data.exception;
+        obj.error = data.exception;
       }else{//用户定义的错误
         obj.type = 'error';
-        obj[errorProperty] = data[errorProperty];
+        obj.error = BUI.getValue(data,errorProperty);
       }
       _self.fire('exception',obj);
 

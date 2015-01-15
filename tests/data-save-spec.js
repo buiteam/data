@@ -7,11 +7,15 @@ var $ = require('jquery'),
 describe("测试单一路径，一起保存",function(){
 
   var store = new Store({
-    url:'data/store.json',
+    url:'data/store.json?nowrap',
     proxy : {
-      save : 'data/save_all.json',
+      save : 'data/save_all.json?nowrap',
       method : 'POST'
     }
+  });
+
+  store.on('exception',function(ev){
+    console.log(ev);
   });
   
   it('加载数据',function(done){
@@ -43,7 +47,7 @@ describe("测试单一路径，一起保存",function(){
   it('保存数据',function(done){
 
     store.save('all', null, function(data){
-      expect(data.hasError).to.be(false);
+      expect(data.hasError).not.to.be(true);
       expect(store.get('newRecords').length).to.be(0);
       expect(store.get('modifiedRecords').length).to.be(0);
       expect(store.get('deletedRecords').length).to.be(0);
@@ -57,9 +61,9 @@ describe("测试单一路径，一起保存",function(){
 
 describe('测试单一路径，分别保存',function(){
   var store = new Store({
-    url:'data/store.json',
+    url:'data/store.json?nowrap',
     proxy : {
-      save : 'data/save_all.json',
+      save : 'data/save_all.json?nowrap',
       method : 'POST'
     }
   });
@@ -123,12 +127,12 @@ describe('测试单一路径，分别保存',function(){
 
 describe('测试多路径，分别保存',function(){
   var store = new Store({
-    url:'data/store.json',
+    url:'data/store.json?nowrap',
     proxy : {
       save : {
-        addUrl : 'data/add.json',
-        updateUrl : 'data/update.json',
-        removeUrl : 'data/remove.json'
+        addUrl : 'data/add.json?nowrap',
+        updateUrl : 'data/update.json?nowrap',
+        removeUrl : 'data/remove.json?nowrap'
       },
       method : 'POST'
     }
@@ -189,12 +193,12 @@ describe('测试多路径，分别保存',function(){
 
 describe('测试不指定类型',function(){
   var store = new Store({
-    url:'data/store.json',
+    url:'data/store.json?nowrap',
     proxy : {
       save : {
-        addUrl : 'data/add.json',
-        updateUrl : 'data/update.json',
-        removeUrl : 'data/remove.json'
+        addUrl : 'data/add.json?nowrap',
+        updateUrl : 'data/update.json?nowrap',
+        removeUrl : 'data/remove.json?nowrap'
       },
       method : 'POST'
     }
@@ -257,9 +261,9 @@ describe('测试不指定类型',function(){
 
 describe('测试事件、回调',function(){
   var store = new Store({
-    url:'data/store.json',
+    url:'data/store.json?nowrap',
     proxy : {
-      save : 'data/save_all.json',
+      save : 'data/save_all.json?nowrap',
       method : 'POST'
     }
   });
@@ -308,9 +312,9 @@ describe('测试事件、回调',function(){
 
 describe('测试失败',function(){
   var store = new Store({
-    url:'data/store.json',
+    url:'data/store.json?nowrap',
     proxy : {
-      save : 'data/error.json',
+      save : 'data/error.json?nowrap',
       method : 'POST'
     }
   });

@@ -574,7 +574,9 @@
       if(pidField){
         //params[pidField] = node.id;
         //pid应该是node.parent.id而不是node.id
-        params[pidField] = node.parent ? node.parent.id : 0;
+        params[pidField] = node.parent ? node.parent.id : 
+          node.pid ? node.pid : 
+          node.id ? node.id : 0;
       }
       _self.load(params);  
     },
